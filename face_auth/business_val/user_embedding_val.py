@@ -5,7 +5,7 @@ from typing import List
 
 import numpy as np
 from deepface import DeepFace
-from deepface.commons.functions import detect_face
+from deepface.commons.functions import extract_faces
 from PIL import Image
 
 from face_auth.constant.embedding_constants import (
@@ -40,7 +40,7 @@ class UserLoginEmbeddingValidation:
         """
         Generate embedding from image array"""
         try:
-            faces = detect_face(
+            faces = extract_faces(
                 img_array,
                 detector_backend=DETECTOR_BACKEND,
                 enforce_detection=ENFORCE_DETECTION,
